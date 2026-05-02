@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: energiaudit-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./energiaudit.db
+      - SECRET_KEY=energiaudit-super-secret-key-change-in-production
+    volumes:
+      - ./backend/energiaudit.db:/app/energiaudit.db
+
+  frontend:
+    build: ./frontend
+    container_name: energiaudit-frontend
+    ports:
+      - "80:80"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergiAudit - One-Click Deployment</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: #1e293b; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); text-align: center; max-width: 500px; }
+        h1 { color: #38bdf8; margin-bottom: 1rem; }
+        p { color: #94a3b8; margin-bottom: 2rem; }
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; background: #3b82f6; color: white; text-decoration: none; border-radius: 0.5rem; font-weight: bold; transition: background 0.2s; border: none; cursor: pointer; }
+        .btn:hover { background: #2563eb; }
+        .step { text-align: left; margin-top: 2rem; }
+        .step code { background: #334155; padding: 0.2rem 0.4rem; border-radius: 0.25rem; color: #f472b6; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🚀 Deploy EnergiAudit</h1>
+        <p>I have prepared all the configuration files. To make it live, simply click the button below and connect your GitHub repository.</p>
+        
+        <a href="https://render.com/deploy?repo=https://github.com/YOUR_GITHUB_USERNAME/ENERGIAudit" class="btn" id="deployBtn">
+            Deploy to Render
+        </a>
+
+        <div class="step">
+            <p>1. <strong>Push to GitHub</strong>: First, push this folder to a new GitHub repository.</p>
+            <p>2. <strong>Click Deploy</strong>: Replace <code>YOUR_GITHUB_USERNAME</code> in the URL above with your actual username.</p>
+            <p>3. <strong>Automatic Magic</strong>: Render will read the <code>render.yaml</code> I created and set up everything!</p>
+        </div>
+    </div>
+
+    <script>
+        // Try to help the user if they haven't updated the URL
+        document.getElementById('deployBtn').addEventListener('click', (e) => {
+            if (e.target.href.includes('YOUR_GITHUB_USERNAME')) {
+                alert('Please update the link with your GitHub username first, or simply go to Render.com and import this repository!');
+            }
+        });
+    </script>
+</body>
+</html>
